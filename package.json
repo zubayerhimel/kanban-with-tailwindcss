@@ -1,0 +1,23 @@
+{
+  "name": "kanban-with-tailwindcss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwind build src/style.css -o dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubayerhimel/kanban-with-tailwindcss.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zubayerhimel/kanban-with-tailwindcss/issues"
+  },
+  "homepage": "https://github.com/zubayerhimel/kanban-with-tailwindcss#readme",
+  "dependencies": {
+    "tailwindcss": "^1.9.4"
+  }
+}
