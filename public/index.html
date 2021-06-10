@@ -8,10 +8,18 @@
   </head>
   <body>
     <div id="app" class="h-screen flex">
-      <div
-        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-        class="hidden lg:block w-64 bg-gray-100 border-r w-64 px-8 py-4 overflow-auto"
-      >
+      <div :class="sidebarOpen ? 'block' : 'hidden'" class="z-20 left-0 w-64 bg-gray-100 border-r w-64 px-8 py-4 overflow-auto">
+        <div class="absolute top-0 right-0" @click="sidebarOpen = false">
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
         <img src="../img/logo.svg" alt="logo" width="45" />
         <nav class="mt-8">
           <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">Issues</h3>
@@ -54,13 +62,7 @@
           </div>
           <button class="flex items-center text-sm font-medium text-gray-60 mt-2 hover:bg-gray-300 px-2 py-2 rounded">
             <svg class="text-gray-500" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12.279 5.333v14M5.279 12.334h14"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M12.279 5.333v14M5.279 12.334h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <span class="text-sm text-gray-500 ml-2">New Project</span>
           </button>
@@ -74,43 +76,25 @@
           <header class="px-6">
             <div class="flex justify-between items-center border-gray-200 py-3">
               <div class="flex-1 flex">
-                <button @click="sidebarOpen = true" class="lg:hidden">
+                <button @click="sidebarOpen = !sidebarOpen" class="mr-2">
                   <svg class="text-gray-600" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18.5 10.407H3.14M21.14 6.407h-18M15.5 14.407H3.14M12.5 18.407H3.14"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
+                    <path d="M18.5 10.407H3.14M21.14 6.407h-18M15.5 14.407H3.14M12.5 18.407H3.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
                 </button>
                 <div class="ml-3 relative w-64 lg:ml-0">
                   <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                     <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        d="M11.508 19.479a8 8 0 100-16 8 8 0 000 16zM21.508 21.478l-4.35-4.35"
-                      />
+                      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11.508 19.479a8 8 0 100-16 8 8 0 000 16zM21.508 21.478l-4.35-4.35" />
                     </svg>
                   </span>
-                  <input
-                    placeholder="Search"
-                    class="rounded-md border border-gray-400 pl-12 pr-4 py-3 text-sm leading-tight placeholder-gray-600 text-gray-900"
-                  />
+                  <input placeholder="Search" class="rounded-md border border-gray-400 pl-12 pr-4 py-3 text-sm leading-tight placeholder-gray-600 text-gray-900" />
                 </div>
               </div>
 
               <div class="flex items-center">
                 <button>
                   <svg class="text-gray-600" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18.62 8.05a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9zM14.35 21.05a1.999 1.999 0 01-3.46 0"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
+                    <path d="M18.62 8.05a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9zM14.35 21.05a1.999 1.999 0 01-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                   </svg>
                 </button>
                 <button class="ml-6">
@@ -168,25 +152,13 @@
                   </button>
                   <button class="px-2 py-1 bg-white rounded shadow">
                     <svg class="text-gray-600" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        d="M12.933 3.555v18m0-18h7a2 2 0 012 2v14a2 2 0 01-2 2h-7v-18zm0 0h-7a2 2 0 00-2 2v14a2 2 0 002 2h7v-18z"
-                      />
+                      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12.933 3.555v18m0-18h7a2 2 0 012 2v14a2 2 0 01-2 2h-7v-18zm0 0h-7a2 2 0 00-2 2v14a2 2 0 002 2h7v-18z" />
                     </svg>
                   </button>
                 </span>
-                <button
-                  class="ml-3 flex items-center justify-between text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-md"
-                >
+                <button class="ml-3 flex items-center justify-between text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-md">
                   <svg class="h-6 w-6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      d="M12.279 5.333v14M5.279 12.334h14"
-                    />
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12.279 5.333v14M5.279 12.334h14" />
                   </svg>
                   <span class="text-sm text-gray-200">New Issue</span>
                 </button>
@@ -204,9 +176,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -229,9 +199,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -254,9 +222,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -279,9 +245,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -304,9 +268,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -330,9 +292,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -364,9 +324,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -389,9 +347,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -414,9 +370,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -440,9 +394,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -474,9 +426,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -499,9 +449,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -524,9 +472,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -549,9 +495,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -574,9 +518,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -599,9 +541,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -624,9 +564,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -650,9 +588,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -684,9 +620,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -709,9 +643,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -734,9 +666,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -759,9 +689,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -784,9 +712,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -809,9 +735,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
                           alt="avatar"
@@ -834,9 +758,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -860,9 +782,7 @@
                   <li class="mt-3">
                     <a href="#" class="block p-5 bg-white rounded-md shadow">
                       <div class="flex justify-between">
-                        <p class="text-sm font-medium leading-snug text-gray-900">
-                          Add discount code to checkout page.
-                        </p>
+                        <p class="text-sm font-medium leading-snug text-gray-900">Add discount code to checkout page.</p>
 
                         <img
                           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=144&h=144&q=80"
@@ -891,14 +811,14 @@
       </div>
     </div>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       new Vue({
         el: "#app",
         data: {
-          sidebarOpen: false,
+          sidebarOpen: true,
         },
       });
-    </script> -->
+    </script>
   </body>
 </html>
